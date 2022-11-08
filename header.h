@@ -1,10 +1,12 @@
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 using namespace std;
 
 
 #define PALS 4
 #define NUMEROS 13
-#define NUM_CARTES PALS*NUMEROS
+#define NUM_CARTES PALS * NUMEROS
 
 #define CORS 1
 #define DIAMANTS 2
@@ -16,6 +18,8 @@ using namespace std;
 #define QUEEN 12
 #define KING 13
 
+#define INTERCANVIS 1000
+
 
 typedef struct
 {
@@ -26,3 +30,6 @@ typedef struct
 
 void InicialitzarBaralla(Cartes[]);
 void MostrarCarta(Cartes);
+void Remenar(Cartes[], int);
+void Intercanviar(Cartes&, Cartes&);
+int Aleatori(int, int);

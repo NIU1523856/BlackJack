@@ -3,13 +3,18 @@
 
 void InicialitzarBaralla(Cartes b[])
 {
-	for (size_t i = 0; i < PALS; i++)
+	int j = 1, k = 1;
+	for (size_t i = 0; i < NUM_CARTES; i++)
 	{
-		for (size_t j = 0; j < NUMEROS; j++)
+		if (i % 13 == 0 && i != 0)
 		{
-			b[i].Pal = i;
-			b[i].Numero = j;
+			j = 1;
+			k++;
 		}
+
+		b[i].Numero = j;
+		b[i].Pal = k;
+		j++;
 	}
 }
 
@@ -22,6 +27,7 @@ void MostrarCarta(Cartes c)
 		break;
 	case 11:
 		cout << "J";
+		break;
 	case 12:
 		cout << "Q";
 		break;
@@ -48,4 +54,87 @@ void MostrarCarta(Cartes c)
 		break;
 	}
 	cout << endl;
+}
+
+void Intercanviar(Cartes& c1, Cartes& c2)
+{
+	Cartes aux;
+
+	aux.Numero = c1.Numero;
+	aux.Pal = c1.Pal;
+
+	c1.Numero = c2.Numero;
+	c1.Pal = c2.Pal;
+
+	c2.Numero = aux.Numero;
+	c2.Pal = aux.Pal;
+}
+
+void Remenar(Cartes b[], int intercanvis)
+{
+	int n1 = 0, n2 = 0;
+	for (size_t i = 0; i < intercanvis; i++)
+	{
+		Intercanviar(b[Aleatori(1, NUM_CARTES)], b[Aleatori(1, NUM_CARTES)]);
+	}
+}
+
+int Aleatori(int NumMin, int NumMax)
+{
+	int NumAleatori;
+
+	NumAleatori = rand() % NumMax;
+
+	return NumAleatori;
+}
+
+int PuntsCarta(Cartes c)
+{
+	switch (c.Numero)
+	{
+	case 11:
+	case 12:
+	case 13:
+		return 10;
+		break;
+	default:
+		return c.Numero;
+		break;
+	}
+}
+
+bool Preguntar()
+{
+	
+	char des;
+	do
+	{
+		cout << "Vols una altra carta? (S/N): ";
+		cin >> des;
+		if (des != 's' && des != 'S' && des != 'n' && des != 'N')
+		{
+			cout << "Error: Opcio incorrecte." << endl;
+		}
+	} while (des != 's' && des != 'S' && des != 'n' && des != 'N');
+	
+	if (des == 's' || des == 'S')
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+bool EstrategiaOrdinador(bool jPlantat, int pOrdinador, int pJugador)
+{
+	if (jPlantat = 0 && pOrdinador > 17)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
 }
