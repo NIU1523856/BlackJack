@@ -33,3 +33,8 @@ void MostrarCarta(Cartes);
 void Remenar(Cartes[], int);
 void Intercanviar(Cartes&, Cartes&);
 int Aleatori(int, int);
+int PuntsCarta(Cartes);
+bool Preguntar();
+bool EstrategiaOrdinador(bool, int, int);
+int CalcularGuanyador(bool, bool, int, int);
+

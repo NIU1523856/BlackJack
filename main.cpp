@@ -3,15 +3,12 @@
 
 int main()
 {
-	srand((unsigned)time(NULL));
-
 	Cartes Baralla[NUM_CARTES];
 	int i;
 
+	srand((unsigned)time(NULL));
+
 	InicialitzarBaralla(Baralla);
-	/*Intercanviar(Baralla[23], Baralla[43]);
-	MostrarCarta(Baralla[23]);
-	MostrarCarta(Baralla[43]);*/
 	
 	Remenar(Baralla, INTERCANVIS);
 

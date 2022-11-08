@@ -129,12 +129,45 @@ bool Preguntar()
 
 bool EstrategiaOrdinador(bool jPlantat, int pOrdinador, int pJugador)
 {
-	if (jPlantat = 0 && pOrdinador > 17)
+	if (jPlantat = 0 && pOrdinador < 17)
 	{
 		return 1;
 	}
 	else
 	{
 		return 0;
+	}
+}
+
+int CalcularGuanyador(bool jPerd, bool oPerd, int pJugador, int pOrdinador)
+{
+	if (jPerd)
+	{
+		if (oPerd)
+		{
+			return 0;
+		}
+		else
+		{
+			return 2;
+		}
+	}
+	else
+	{
+		if (oPerd)
+		{
+			return 1;
+		}
+		else
+		{
+			if (pJugador > pOrdinador)
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
+		}
 	}
 }
